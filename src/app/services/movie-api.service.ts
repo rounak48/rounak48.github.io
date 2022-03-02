@@ -11,7 +11,7 @@ import { catchError, map } from "rxjs/operators";
 })
 export class MovieApiService {
 
-  private BASE_URI = "http://www.omdbapi.com/?apikey=b9bd48a6&";
+  private BASE_URI = "https://www.omdbapi.com/?apikey=b9bd48a6&";
 
   constructor(private http:HttpClient) { }
 
