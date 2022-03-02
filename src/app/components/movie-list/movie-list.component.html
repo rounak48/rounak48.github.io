@@ -1,0 +1,49 @@
+<app-header [navTitle]="'Search'"></app-header>
+<div class="search-wrapper">
+    <div class="search-name">
+        <input type="text" placeholder="Search by keyword..." [(ngModel)]="movieQuery">
+    </div>
+    <div class="search-type">
+        <select name="movieType" id="movieType" [(ngModel)]="movieType">
+            <option value="all">ALL</option>
+            <option value="movie">Movies</option>
+            <option value="series">Series</option>
+            <option value="episode">Episode</option>
+        </select>
+    </div>
+    <div class="search-button">
+        <button class="my-btn" type="button" (click)="searchMovies()">
+            <img src="assets/search.svg" alt="">
+        </button>
+    </div>
+</div>
+<div class="content">
+    <ng-container *ngIf="(movies$ | async) as movies; else loading">
+        <ng-container *ngIf="movies.length>0; else empty">
+            <app-movie-card *ngFor="let movie of movies" [movie]="movie" [routerLink] = "['/movie',movie.imdbID]"></app-movie-card>
+            <button type="button" class="my-btn nav-btn nav-btn-left" (click)="prevMovies();">
+                <img src="assets/chevron-left.svg" alt="">
+            </button>
+            <button type="button" class="my-btn nav-btn nav-btn-right" (click)="nextMovies();">
+                <img src="assets/chevron-right.svg" alt="">
+            </button>
+        </ng-container>
+    </ng-container>
+</div>
+
+<!-- <div class="footer">
+    
+</div> -->
+
+<ng-template #loading>
+    <div class="loading">
+        <div class="spinner-border m-5" role="status">
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #empty>
+    <div class="empty">
+        <h3>No Results found. Try modifying search query.</h3>
+    </div>
+</ng-template>

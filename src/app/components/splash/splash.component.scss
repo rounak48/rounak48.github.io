@@ -1,0 +1,11 @@
+.wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .spinner-border{
+        width: 45px;
+        height: 45px;
+    }
+}

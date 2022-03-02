@@ -1,0 +1,14 @@
+<div class="movie-card">
+    <div class="movie-poster">
+        <img [src]="movie.Poster" alt="movie poster">
+    </div>
+    <div class="movie-info">
+        <div class="movie-title">
+            {{movie.Title | shortName}}
+        </div>
+        <div class="movie-year">
+            {{movie.Year}}
+        </div>
+    </div>
+
+</div>

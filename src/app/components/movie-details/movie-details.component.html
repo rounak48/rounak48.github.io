@@ -1,0 +1,69 @@
+<app-header [navTitle]="'Detail'" [navIcon]="'arrow-left'"></app-header>
+<div class="content">
+    <ng-container *ngIf="(details$ | async) as details; else loading">
+        <div class="poster">
+            <img [src]="details.Poster" alt="">
+            <div class="info1">
+                <h3>{{details.Title}}</h3>
+                <h5>{{details.Year}}</h5>
+            </div>
+        </div>
+        <div class="info2 row">
+            <div class="col-4">
+                <div class="label">Genre</div>
+                <div class="value-text">{{details["Genre"]}}</div>
+            </div>
+            <div class="col-4">
+                <div class="label">Running Time</div>
+                <div class="value-text">{{details["Runtime"]}}</div>
+            </div>
+            <div class="col-4">
+                <div class="label">IMDB Rating</div>
+                <div class="value-text">{{details["imdbRating"]}}</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="label">Directed By</div>
+                <div class="value-text">{{details["Director"]}}</div>
+            </div>
+            <div class="col-4">
+                <div class="label">Released</div>
+                <div class="value-text">{{details["Released"]}}</div>
+            </div>
+            <div class="col-4">
+                <div class="label">Language</div>
+                <div class="value-text">{{details["Language"]}}</div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="label">Plot</div>
+                <div class="value-text">{{details["Plot"]}}</div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="label">Actors</div>
+                <div class="value-text">{{details["Actors"]}}</div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="label">Writers</div>
+                <div class="value-text">{{details["Writer"]}}</div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #loading>
+    <div class="loading">
+        <div class="spinner-border m-5" role="status">
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,28 @@
+.content{
+max-width: 900px;
+padding: 24px 48px;
+margin: 0 auto;
+
+.row{
+    margin-bottom:24px;
+}
+    .poster{
+        position: relative;
+        img{
+            height: 300px;
+            width: 100%;
+        }
+
+        .info1{
+            position: absolute;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            padding: 10px;
+        }
+    }
+
+    .label{
+        font-family: monospace;
+        color: hsl(203, 16%, 72%);
+    }
+}
